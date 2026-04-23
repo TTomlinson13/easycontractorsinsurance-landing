@@ -33,10 +33,10 @@ function App() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="https://app.usecanopy.com/c/tomlinson-and-co" target="_blank" rel="noopener noreferrer" className="bg-amber-500 hover:bg-amber-400 text-black px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg">
-              Start Your Quote →
+              Quick Quote (2 mins) →
             </a>
-            <a href="tel:800-616-1418" className="bg-transparent border-2 border-white hover:bg-white hover:text-slate-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition">
-              📞 800-616-1418
+            <a href="https://hoinsurance.wufoo.com/forms/mny6lj30o6rvjf/" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-amber-400 hover:bg-amber-400 hover:text-black text-white px-8 py-4 rounded-lg font-bold text-lg transition">
+              Detailed Application
             </a>
           </div>
         </div>
@@ -87,10 +87,10 @@ function App() {
           <p className="text-amber-900 text-lg mb-8">Fast quotes, same-day coverage available.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="https://app.usecanopy.com/c/tomlinson-and-co" target="_blank" rel="noopener noreferrer" className="bg-black text-white font-bold text-xl py-4 px-8 rounded-lg shadow-lg hover:bg-slate-800 transition">
-              Start Quote →
+              Quick Quote (2 mins) →
             </a>
-            <a href="tel:800-616-1418" className="bg-white text-amber-700 font-bold text-xl py-4 px-8 rounded-lg shadow-lg hover:bg-slate-100 transition">
-              📞 800-616-1418
+            <a href="https://hoinsurance.wufoo.com/forms/mny6lj30o6rvjf/" target="_blank" rel="noopener noreferrer" className="bg-white text-amber-700 font-bold text-xl py-4 px-8 rounded-lg shadow-lg hover:bg-amber-50 transition">
+              Detailed Application
             </a>
           </div>
         </div>
