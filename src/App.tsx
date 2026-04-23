@@ -31,12 +31,21 @@ function App() {
             From general contractors to specialty trades — we find the best coverage at the best price. 
             General liability, workers comp, bonds, and more.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://app.usecanopy.com/c/tomlinson-and-co" target="_blank" rel="noopener noreferrer" className="bg-amber-500 hover:bg-amber-400 text-black px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg">
-              Quick Quote (2 mins) →
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href="https://app.usecanopy.com/c/tomlinson-and-co" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-black px-7 py-4 rounded-xl font-bold text-base transition shadow-lg text-center">
+              <span className="block text-xl mb-0.5">⚡</span>
+              Quick Quote
+              <span className="block text-xs font-normal opacity-75">2 mins • Auto-fill</span>
             </a>
-            <a href="https://hoinsurance.wufoo.com/forms/mny6lj30o6rvjf/" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-amber-400 hover:bg-amber-400 hover:text-black text-white px-8 py-4 rounded-lg font-bold text-lg transition">
-              Detailed Application
+            <a href="https://hoinsurance.wufoo.com/forms/mny6lj30o6rvjf/" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-amber-50 text-amber-900 px-7 py-4 rounded-xl font-bold text-base transition shadow-lg text-center">
+              <span className="block text-xl mb-0.5">📝</span>
+              Full Quote Form
+              <span className="block text-xs font-normal opacity-60">Detailed application</span>
+            </a>
+            <a href="tel:800-616-1418" className="bg-amber-600 hover:bg-amber-500 text-white px-7 py-4 rounded-xl font-bold text-base transition shadow-lg text-center">
+              <span className="block text-xl mb-0.5">📞</span>
+              Call Us
+              <span className="block text-xs font-normal opacity-75">800-616-1418</span>
             </a>
           </div>
         </div>
