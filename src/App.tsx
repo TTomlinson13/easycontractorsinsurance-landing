@@ -1,7 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+function JotformModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      style={{ background: 'rgba(15,23,42,0.75)', backdropFilter: 'blur(4px)' }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
+    >
+      <div className="relative w-full max-w-2xl mx-4 rounded-2xl overflow-hidden shadow-2xl" style={{ maxHeight: '90vh' }}>
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 z-10 bg-white/90 hover:bg-white text-slate-700 rounded-full w-9 h-9 flex items-center justify-center text-xl font-bold shadow transition"
+          aria-label="Close"
+        >×</button>
+        <iframe
+          src={`https://form.jotform.com/261320993678164`}
+          title="Insurance Quote"
+          allow="geolocation; microphone; camera"
+          allowFullScreen
+          style={{ width: '100%', height: '80vh', border: 'none', display: 'block', background: '#fff' }}
+        />
+      </div>
+    </div>
+  )
+}
 
 function App() {
   const [showNavMenu, setShowNavMenu] = useState(false)
+  const [showJotform, setShowJotform] = useState(false)
   return (
     <div className="min-h-screen bg-white">
       {/* Top Bar */}
@@ -28,9 +58,9 @@ function App() {
                 <a href="https://app.usecanopy.com/c/tomlinson-and-co" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 hover:bg-amber-50 transition border-b border-gray-100" onClick={() => setShowNavMenu(false)}>
                   <span className="text-xl">⚡</span><div className="text-left"><div className="font-bold text-amber-900 text-sm">Quick Quote</div><div className="text-xs text-gray-500">2 mins • Auto-fill</div></div>
                 </a>
-                <a href="https://hoinsurance.wufoo.com/forms/mny6lj30o6rvjf/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 hover:bg-amber-50 transition border-b border-gray-100" onClick={() => setShowNavMenu(false)}>
+                <button onClick={() => { setShowJotform(true); setShowNavMenu(false) }} className="flex items-center gap-3 px-4 py-3 hover:bg-amber-50 transition border-b border-gray-100 w-full text-left">
                   <span className="text-xl">📝</span><div className="text-left"><div className="font-bold text-amber-900 text-sm">Full Quote Form</div><div className="text-xs text-gray-500">Detailed application</div></div>
-                </a>
+                </button>
                 <a href="tel:800-616-1418" className="flex items-center gap-3 px-4 py-3 hover:bg-amber-50 transition" onClick={() => setShowNavMenu(false)}>
                   <span className="text-xl">📞</span><div className="text-left"><div className="font-bold text-amber-900 text-sm">Call Us</div><div className="text-xs text-gray-500">800-616-1418</div></div>
                 </a>
@@ -57,11 +87,11 @@ function App() {
               Quick Quote
               <span className="block text-xs font-normal opacity-75">2 mins • Auto-fill</span>
             </a>
-            <a href="https://hoinsurance.wufoo.com/forms/mny6lj30o6rvjf/" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-amber-50 text-amber-900 px-7 py-4 rounded-xl font-bold text-base transition shadow-lg text-center">
+            <button onClick={() => setShowJotform(true)} className="bg-white hover:bg-amber-50 text-amber-900 px-7 py-4 rounded-xl font-bold text-base transition shadow-lg text-center">
               <span className="block text-xl mb-0.5">📝</span>
               Full Quote Form
               <span className="block text-xs font-normal opacity-60">Detailed application</span>
-            </a>
+            </button>
             <a href="tel:800-616-1418" className="bg-amber-600 hover:bg-amber-500 text-white px-7 py-4 rounded-xl font-bold text-base transition shadow-lg text-center">
               <span className="block text-xl mb-0.5">📞</span>
               Call Us
@@ -118,13 +148,14 @@ function App() {
             <a href="https://app.usecanopy.com/c/tomlinson-and-co" target="_blank" rel="noopener noreferrer" className="bg-black text-white font-bold text-xl py-4 px-8 rounded-lg shadow-lg hover:bg-slate-800 transition">
               Quick Quote (2 mins) →
             </a>
-            <a href="https://hoinsurance.wufoo.com/forms/mny6lj30o6rvjf/" target="_blank" rel="noopener noreferrer" className="bg-white text-amber-700 font-bold text-xl py-4 px-8 rounded-lg shadow-lg hover:bg-amber-50 transition">
+            <button onClick={() => setShowJotform(true)} className="bg-white text-amber-700 font-bold text-xl py-4 px-8 rounded-lg shadow-lg hover:bg-amber-50 transition">
               Detailed Application
-            </a>
+            </button>
           </div>
         </div>
       </section>
 
+      {showJotform && <JotformModal onClose={() => setShowJotform(false)} />}
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-8 px-4 text-center">
         <h4 className="text-white font-bold text-xl mb-2">EasyContractorsInsurance.com</h4>
